@@ -1,0 +1,22 @@
+.maindiv{
+    background-color:skyblue;
+    text-align: center;
+    font-size: x-large;
+  font-weight: 600;
+  color: floralwhite;
+
+}
+.cssgrid{
+    /* flex: initial; */
+    flex-direction: row;
+}
+.picpart{
+    /* background-color:whitesmoke; */
+
+    text-decoration: peru;
+    font-size: large;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* flex-direction:row; */
+    
+}
