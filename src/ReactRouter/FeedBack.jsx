@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import AboutUs from 'AboutUs';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 
 const FeedBack = () => {
   function useQuery() {
@@ -27,6 +28,22 @@ const FeedBack = () => {
   feedBackObj.email = getEmail;
 
   console.log(`feedBackObj`, feedBackObj);
+
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('AboutUs');
+  };
+  function myFunction() {
+    setTimeout(() => {
+      handleClick();
+    }, 3000);
+  }
+
+  useEffect(() => {
+    myFunction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       {getFeedback ? (
