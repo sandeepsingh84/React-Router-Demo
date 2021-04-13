@@ -1,16 +1,16 @@
 // import logo from "./logo.svg";
 import './App.css';
 // import Table from "./Table";
-// import Buttonstate from "./Buttonstate";
+// import Buttonstate from './Buttonstate';
 // import Gridpic from "./Gridpics";
 // import Inputfields from "./Inputfields";
-// import Marketingpg from "./Marketingpg";
-// import Pricingpln from "./Pricingpln";
-// import Featurepricing from "./Featurepricing";
+// import Marketingpg from './Marketingpg';
+// import Pricingpln from './Pricingpln';
+// import Featurepricing from './Featurepricing';
 // import Scrollover from "./Scrollover";
-// import Headermarket from "./Headermarket";
+// import Headermarket from './Headermarket';
 // import Todolist from "./Todolist";
-// import HookStateEffect from "./HookStateEffect";
+// import HookStateEffect from './HookStateEffect';
 // import TableHook from "./TableHook";
 // import ContactFormParent from "./contactform/ContactFormParent";
 // import ShoppingListParent from "./contactform/ShoppingListParent";
@@ -28,6 +28,13 @@ import ReactRouter from './ReactRouter';
 function App() {
   return (
     <div className=''>
+      {/* <Scrollover/> */}
+      {/* <Featurepricing /> */}
+      {/* <HookStateEffect /> */}
+      {/* <Pricingpln /> */}
+      {/* <Marketingpg /> */}
+      {/* <Headermarket /> */}
+      {/* <Buttonstate /> */}
       {/* <TableHook /> */}
       {/* <ShoopingCart /> */}
       {/* <ShoppingListParent /> */}

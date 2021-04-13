@@ -7,6 +7,8 @@ import AboutUs from './AboutUs';
 import Home from './Home';
 import Users from './Users';
 import ApiPutDelete from '../ApiPutDelete.jsx';
+import Pricingpln from '../Pricingpln';
+import FeedBack from './FeedBack';
 
 const ReactRouter = () => {
   const [allUsers, setAllUsers] = useState();
@@ -42,7 +44,12 @@ const ReactRouter = () => {
               >
                 Home
               </Link>
-
+              <Link
+                to='/Pricingpln'
+                className='text-white mr-5 rounded-full hover:bg-purple-600 px-3 pb-1'
+              >
+                Pricing Plans
+              </Link>
               <Link
                 to='/AboutUs'
                 className='text-white mr-5 rounded-full hover:bg-purple-600 px-3 pb-1'
@@ -57,13 +64,19 @@ const ReactRouter = () => {
                 Users
               </Link>
               <Link
+                to='/FeedBack'
+                className='text-white rounded-full hover:bg-purple-600 px-3 pb-1 mr-5'
+              >
+                Feedback
+              </Link>
+              <Link
                 to='/ApiPutDelete/getUsers'
                 className='text-white rounded-full hover:bg-purple-600 px-3 pb-1'
-                onClick={() => {
-                  // GetUsers();
-                  setLoadingFirst(true);
-                  myFunction();
-                }}
+                // onClick={() => {
+                //   // GetUsers();
+                //   setLoadingFirst(true);
+                //   myFunction();
+                // }}
               >
                 Get Users
               </Link>
@@ -73,15 +86,18 @@ const ReactRouter = () => {
         {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
         <Switch>
-          <Route path='/AboutUS'>
+          <Route path='/AboutUs'>
             <AboutUs />
+          </Route>
+          <Route path='/FeedBack'>
+            <FeedBack />
           </Route>
           <Route path='/Users/:userId'>
             <Users />
           </Route>
-          {/* <Route path='/ApiPutDelete'>
-            <ApiPutDelete />
-          </Route> */}
+          <Route path='/Pricingpln'>
+            <Pricingpln />
+          </Route>
           <Route
             path='/ApiPutDelete/:getUsers'
             render={(props) => (

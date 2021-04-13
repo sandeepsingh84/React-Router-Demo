@@ -7,6 +7,7 @@ const Users = () => {
   const [storeUserId, setStoreUserId] = useState(0);
   // const [afterChange, setAfterChange] = useState();
   const [loading, setLoading] = useState(false);
+  const [checkEmpty, setCheckEmpty] = useState(true);
   const { userId } = useParams();
   console.log('userId :>> ', userId);
   console.log(`paramsId`, paramsId);
@@ -33,6 +34,7 @@ const Users = () => {
     if (userId > 0) {
       myFunction();
       setLoading(true);
+      setCheckEmpty(false)
     }
 
     // if (userId === storeUserId) {
@@ -45,7 +47,7 @@ const Users = () => {
   }, [userId]);
   return (
     <div className='border rounded-lg shadow-md  mt-10 p-20 bg-blue-100'>
-      <div
+      {checkEmpty ? (<div className=""><p className="">Users List is Empty!<br/>Get Users First!!</p></div>): (<div
         className='mb-5 flex  bg-white rounded-lg shadow-lg p-3'
         key={userId}
       >
@@ -117,7 +119,8 @@ const Users = () => {
             </div>
           </div>
         )}
-      </div>
+      </div>)}
+      
     </div>
   );
 };
