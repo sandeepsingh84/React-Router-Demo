@@ -54,9 +54,10 @@ const ApiPutDelete = ({
   // };
 
   const location = useLocation();
-  console.log('location :>> ', location);
+  // console.log('location :>> ', location);
 
   useEffect(() => {
+    
     setRouterParameter(location?.pathname);
   }, [location]);
 

@@ -136,4 +136,159 @@ respData.filter((filtItem) =>
                   4. npm i
                    5. npm i react-router-dom
 
+//React Router Dom usage
+
                    https://reactrouter.com/web/guides/quick-start
+
+//Updation of Router Dom usage Please read
+
+https://blog.logrocket.com/migrating-react-router-v6-complete-guide/
+
+//For form design inbuild templates (antd forms)
+
+                   https://ant.design/components/form/
+ ///for select button
+                   https://ant.design/components/select/
+
+                   /// import 'Option' from select using object destructuring inside main function component
+
+                   import { Button, Form, Select } from 'antd';
+
+const SelectDesign = () => {
+  const { Option } = Select;   <=====
+
+  ///antd modal
+  https://ant.design/components/modal/#header
+
+// for setting default initial values in the form 
+syntex-- form.setFieldsValue({ form.item name: value})
+
+useEffect(() => {
+    form.setFieldsValue({
+      Age: 10,       //Age is particular form.item name field (name="Age")
+    });
+  }, []);
+
+//for reseting form.item values in the field
+   form.resetFields();
+
+//for giving html element inside footer prop of Modal
+syntax-- <Modal footer={[<>]} > <Modal/>
+    footer={[
+        <div>
+          {/* <a href='/index.jsx'>Already have an account? Login here</a> */}
+          <Button type='link' onClick={() => setEditProfileVisible(false)}>
+            Already have an account? Login here
+          </Button>
+        </div>,
+      ]}
+
+//grid responsive
+       {/* container mx-auto are tailwind classes */}
+        <div className="container mx-auto">  
+          <Row gutter={[24, 12]}>
+            <Col className="border" span={12}>Col 1</Col>
+            <Col className="border" span={12}>Col 2</Col>
+          </Row>
+        </div>
+        <div className="container mx-auto">
+        {/* 24 is full screen width (horizontal spacing)in a row and 12 (vertical spacing)is spacing between components whenever a page comes to smaller screens (responsive) */}
+          <Row gutter={[24,12]}>      
+            <Col  xl={12} lg={12} md={12} sm={24} xs={24}><div className="border"> Col 1</div></Col>
+            <Col  xl={12} lg={12} md={12} sm={24} xs={24} ><div className="border"> Col 2</div></Col>
+          </Row>
+        </div>
+
+
+//Api calling task
+
+website--> https://randomuser.me/
+Api-->     https://randomuser.me/api
+
+
+//onClick event does not works directly on table in Antdesign.but it works under onRow event of table
+//Declaration is below
+<Table
+              columns={columns}
+              dataSource={dataArray}
+       ==>       onRow={(record) => {
+                return {
+      ==>            onClick: (event) => {
+                    event.stopPropagation();     <== this function stopPropagation stops any unusfull events which is not required
+                    console.log(record);
+                  }, // mouse leave row
+                };
+              }}
+            ></Table>
+
+
+///How to show message.success part after message.loading and deleting row
+
+             //popconfirm part
+useEffect(() => {
+    setDataArrayLength(dataArray?.length) ///it will store the previous higher length
+    if (deleteLoading) {
+      message.loading("Deleting");
+    }
+    if (dataArray?.length < dataArrayLength) {
+      message.success(`Record has been deleted`);
+    }
+  }, [deleteLoading]);
+  const confirm = (record) => {
+    if (!deleteLoading) {
+      setDeleteLoading(true);
+    }
+    //query
+    // console.log(`event`, event)
+    console.log(`delYes`, record);
+
+    setTimeout(() => {
+      setDataArray(
+        dataArray?.filter((filData) => filData?.key !== record?.key)
+      );
+      setDeleteLoading(false);
+      
+    }, 2500);
+  };
+
+  //Select's label property link
+
+  https://codesandbox.io/s/antd-reproduction-template-tk678?file=/index.js
+
+
+  //sending event and username as a prop in function callback simultaneously
+  
+    onConfirm={(event)=>{
+                console.log(`event`, event)
+                inviteConfirm(inviteDrawerData?.name,event)}}
+
+
+
+     //////  just follow this code : use useRef hook and assign a Ref to Carousel and then call next and prev method by refrence.
+/// link for this example-- https://stackoverflow.com/questions/44114224/react-js-antd-carousel-with-arrows
+import React, { useRef, Fragment } from "react";
+import { Carousel } from "antd";
+
+const MyCarousel = () => {
+const slider = useRef(null);
+
+return ( 
+<Fragment >
+    <Button onClick={() => slider.current.next()}>next</Button>  
+    <Carousel ref={slider}>
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+    </Carousel>
+    <Button onClick={() => slider.current.next()}>next</Button>
+</Fragment >
+)}
+
+explanation- //slider--click on that componnet whose ref is slider //.current- focus on whose current part //.next- then move to next part
+
+
+
+npm create umi myApp
+
+//import icons from antd
+import { MehTwoTone } from "@ant-design/icons";

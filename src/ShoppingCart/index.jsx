@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ShoopingCart = () => {
+const ShoppingCart = () => {
   const [cartArray, setCartArray] = useState([]);
   const [input, setInput] = useState("");
 
@@ -35,4 +35,4 @@ const ShoopingCart = () => {
   );
 };
 
-export default ShoopingCart;
+export default ShoppingCart;

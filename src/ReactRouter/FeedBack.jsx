@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import AboutUs from 'AboutUs';
+import AboutUs from './AboutUs';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 
 const FeedBack = () => {
-  function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
-  console.log(`useLocation()`, useLocation().search);
 
   const [getFeedback, setGetFeedback] = useState();
   const [getName, setGetName] = useState();
   const [getEmail, setGetEmail] = useState();
-  // const [notification, setNotification] = useState(false);
+  const [notification, setNotification] = useState(0);
   // console.log(`queryGet`, queryGet)
+
+  function useQuery() {
+    return new URLSearchParams(useLocation().search); //URlSearchParams will search the useLocation(current location ) for any updated parameters in the Url.
+  }
+  console.log(`useLocation()`, useLocation().search);
 
   const query = useQuery();
 
@@ -20,6 +21,7 @@ const FeedBack = () => {
     setGetFeedback(query.get('feedback'));
     setGetName(query.get('name'));
     setGetEmail(query.get('email'));
+    // setNotification(false)
   }, [query]);
 
   const feedBackObj = {};
@@ -30,20 +32,19 @@ const FeedBack = () => {
   console.log(`feedBackObj`, feedBackObj);
 
   const history = useHistory();
-
   const handleClick = () => {
-    history.push('AboutUs');
+    history.push('/AboutUs');
   };
-  function myFunction() {
+  // function myFunction() {
+
+  // }
+
+  useEffect(() => {
     setTimeout(() => {
       handleClick();
     }, 3000);
-  }
-
-  useEffect(() => {
-    myFunction();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [notification]);
   return (
     <>
       {getFeedback ? (

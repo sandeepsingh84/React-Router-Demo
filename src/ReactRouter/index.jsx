@@ -86,19 +86,23 @@ const ReactRouter = () => {
         {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
         <Switch>
-          <Route path='/AboutUs'>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route exact path='/AboutUs'>
             <AboutUs />
           </Route>
-          <Route path='/FeedBack'>
+          <Route exact path='/FeedBack'>
             <FeedBack />
           </Route>
-          <Route path='/Users/:userId'>
+          <Route exact path='/Users/:userId'>
             <Users />
           </Route>
-          <Route path='/Pricingpln'>
+          <Route exact path='/Pricingpln'>
             <Pricingpln />
           </Route>
           <Route
+            exact
             path='/ApiPutDelete/:getUsers'
             render={(props) => (
               <ApiPutDelete
@@ -114,9 +118,6 @@ const ReactRouter = () => {
               />
             )}
           />
-          <Route path='/'>
-            <Home />
-          </Route>
         </Switch>
       </div>
     </Router>
